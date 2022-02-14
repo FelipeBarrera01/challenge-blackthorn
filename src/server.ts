@@ -1,18 +1,22 @@
 import http from "http";
-const throng = require('throng')
+const throng = require("throng");
 
 const { connect } = require("./db/Config");
 import { routes } from "./router";
 
 const port = process.env.PORT || "8000";
-const WORKERS = process.env.WEB_CONCURRENCY || 1
+const WORKERS = process.env.WEB_CONCURRENCY || 1;
 
-throng({
-  workers: WORKERS,
-  lifetime: Infinity
-}, createServer);
+  // throng(
+  //   {
+  //     workers: WORKERS,
+  //     lifetime: Infinity,
+  //   },
+  //   start
+  // );
 
-export function createServer() {
+
+export function start() {
   const app = http.createServer(async (req: any, res: any) => {
     await routes(req, res);
   });

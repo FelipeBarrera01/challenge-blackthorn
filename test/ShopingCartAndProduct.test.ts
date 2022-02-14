@@ -1,8 +1,8 @@
 import moongose from 'mongoose'
 
 import  supertest from"supertest";
-import { createServer } from '../src/server';
-const { app, server } = createServer();
+import { start } from '../src/server';
+const { app, server } = start();
 const api = supertest(app);
 
 

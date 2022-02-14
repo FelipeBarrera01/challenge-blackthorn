@@ -1,8 +1,8 @@
 import dotenv from 'dotenv';
-import { createServer } from './server';
+import { start } from './server';
 
 
 dotenv.config();
-createServer();
+start();
 
 
