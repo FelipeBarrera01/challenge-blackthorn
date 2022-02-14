@@ -11,7 +11,7 @@ export class CartRepositoryImpl implements CartRepository{
         return await Cart.find({}).populate('products');
     }
     async getShoppingCartById(id: string): Promise<any> {
-        return await Cart.findOne({_id: id});
+        return await Cart.findOne({_id: id}).populate('products');
     }
     async saveShoppingCart(cart: CartAttrs): Promise<any> {
         const cartSaved = new Cart({...cart});
